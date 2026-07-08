@@ -17,8 +17,7 @@ CodeAlpha_ArtificialIntelligence/
 │   └── Chatbot_app.py
 ├── CodeAlpha_Music Generator/
 │   └── musicGenerator_app.py
-├── CodeAlpha_objectDetectionandTracking/
-│   └── ObjectDetection_final_fixed.py
+│
 ├── requirements.txt
 └── README.md
 ```
@@ -288,22 +287,6 @@ streamlit run Chatbot_app.py
 cd "CodeAlpha_Music Generator"
 streamlit run musicGenerator_app.py
 
-# Object Detection
-cd "CodeAlpha_objectDetectionandTracking"
-streamlit run ObjectDetection_final_fixed.py
-```
-
----
-
-## 🎨 Color Legend
-
-| Color | Meaning |
-|-------|---------|
-| 🟢 Green | Success/Active |
-| 🟡 Yellow | Warning/Loading |
-| 🔴 Red | Error/Stop |
-| 🔵 Blue | Information |
-| 🟣 Purple | AI/ML Features |
 
 ---
 
