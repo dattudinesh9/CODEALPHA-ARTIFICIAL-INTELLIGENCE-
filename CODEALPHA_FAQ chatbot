@@ -1,0 +1,21 @@
+import pandas as pd
+import nltk,string
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+nltk.download('punkt'); nltk.download('stopwords')
+faq=pd.read_csv('faq.csv')
+sw=set(stopwords.words('english'))
+def preprocess(t):
+ t=t.lower()
+ w=[x for x in word_tokenize(t) if x not in sw and x not in string.punctuation]
+ return ' '.join(w)
+faq['processed']=faq['Question'].apply(preprocess)
+vec=TfidfVectorizer();X=vec.fit_transform(faq['processed'])
+while True:
+ u=input('You: ')
+ if u=='exit': break
+ s=cosine_similarity(vec.transform([preprocess(u)]),X)
+ i=s.argmax()
+ print('Bot:',faq.iloc[i]['Answer'] if s[0][i]>0.2 else "Sorry, I don't know.")
